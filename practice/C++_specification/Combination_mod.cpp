@@ -48,6 +48,21 @@ ll combination_mod(ll n, ll r, ll mod)
     return (a % mod) * (b % mod) % mod;
 }
 
+const ll N = 1000;
+const ll M = 100;
+
+ll comb[N+1][M+1];
+
+void combination_mod_memo(){
+    comb[0][0] = 1;
+    for (long i = 1; i <= M; i++){
+        for (long j = 0; j <= N; j++){
+            comb[j][i] = (comb[j - 1][i] + (i >= j ? comb[j][i - j] : 0)) % MOD;
+        }
+    }
+    return ;
+}
+
 signed main()
 {
     int n, k;

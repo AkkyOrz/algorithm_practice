@@ -9,8 +9,12 @@ ll a[100010];
 int main(){
     cin >> n >> k;
 
+    int max_bit = 0;
     for (int i = 0; i < n; i ++){
         cin >> a[i];
+        if (a[i] >= (1 << max_bit)){
+            
+        }
     }
 
     ll x = 0;
@@ -18,12 +22,10 @@ int main(){
         x ^= a[i];
     }
 
-    int max_index = 0;
-    for (int i = 0; i < 30; i++){
-        if (k & (1 << i)) max_index = i;
+    int max_index = 1
+    while ((max_index << 1) <= k){
+        max_index = (max_index << 1);
     }
-    //cout << (k & (1 << max_index)) << endl;
-    cout << max_index << endl;
     
    
     
