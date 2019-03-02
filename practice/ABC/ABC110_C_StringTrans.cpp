@@ -4,23 +4,28 @@ using namespace std;
 typedef long long ll;
 const int INF = 1 << 30;
 
-map<char, char> m;
+int m[26], r[26];
 
 int main(){
+    for (int i = 0; i < 26; i++){
+        m[i] = -1;
+        r[i] = -1;
+    } 
+
     string s, t;
     cin >> s >> t;
 
     for (int i = 0; i < s.size(); i++){
-        map<char, char>:: iterator  ite;
-        ite = m.find(s[i]);
-        if (ite == m.end()){
-            m.insert(make_pair(s[i], t[i]));
-            m.insert(make_pair(t[i], s[i]));
-            
-        } else if (ite -> second != t[i]){  // もしすでにその文字列が存在
-            cout << s[i] << i << t[i] << endl;
-            cout << "No" << endl;
-            return 0;
+        int s_i = s[i] - 'a';
+        int t_i = t[i] - 'a';
+        if (m[s_i] != -1 || r[t_i] != -1){
+            if (m[s_i] != t_i || r[t_i] != s_i){
+                cout << "No" << endl;
+                return 0;
+            }
+        } else {
+            m[s_i] = t_i;
+            r[t_i] = s_i;
         }
     }
 

@@ -30,7 +30,6 @@ int main(int argc, char const *argv[]) {
     int D, G;
     int p[10];
     int c[10];
-    bool prev[10];
     int bonus[10];
     cin >> D >> G;
     vector<int> v(D);
@@ -39,34 +38,42 @@ int main(int argc, char const *argv[]) {
     }
     for (int i = 1; i <= D; i++){
         bonus[i] = i*100*p[i] + c[i];
-        prev[i] = false;
         v[i-1] = i;
     }
 
 
-    int min = 100000;
+    int min = 1000000;
     do {
         int cnt = 0;
         int sum = 0;
-        int last_i;
+        int last_i = -1;
         for(int i = 0; i < v.size(); i++){
             if (sum + bonus[v[i]] <= G){
                 sum += bonus[v[i]];
                 cnt += p[v[i]];
+                //cout << sum << "," << cnt << endl;
+                last_i = i;
             } else {
                 last_i = i;
+                //cout << last_i << endl;
                 break;
             }
         }
-        for (int i = 0; i < p[v[last_i]]; i++){
-            if (sum + v[last_i]*100 <= G){
-                sum += v[last_i]*100;
-                cnt++;
-            } else {
-                break;
+        if (last_i >= 0){
+            for (int i = 0; i < p[v[last_i]]; i++){
+                if (sum + v[last_i]*100 <= G){
+                    sum += v[last_i]*100;
+                    cnt++;
+                    //cout << sum << ":" << cnt << endl;
+                } else {
+                    if(sum < G){
+                        sum += v[last_i]*100;
+                        cnt++;
+                    }
+                }
             }
+            if (min > cnt) min = cnt;
         }
-        if (min > cnt) min = cnt;
     } while(next_permutation(v.begin(), v.end()));
 
     cout << min << endl;
