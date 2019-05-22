@@ -17,7 +17,31 @@ typedef vector<PII> VP;
 #define ALL(x) (x).begin(), (x).end()
 #define DEBUG(x) cerr << #x << ": " << x << '\n'
 
+
+int n;
+VI v(200010);
+VI a(200010);
+
 signed main()
 {
-    return 0;
+    cin >> n;
+    v.resize(n);
+    a.resize(n);
+    REP(i, n){
+        cin >> v[i];
+        a[i] = v[i];
+    }
+
+    sort(ALL(v));
+
+    int left = v[n/2-1];
+    int right = v[n/2];
+
+    REP(i, n){
+        if (a[i] <= left) {
+            cout << right << endl;
+        } else {
+            cout << left <<endl;
+        }
+    }
 }

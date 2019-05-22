@@ -17,7 +17,17 @@ typedef vector<PII> VP;
 #define ALL(x) (x).begin(), (x).end()
 #define DEBUG(x) cerr << #x << ": " << x << '\n'
 
+int n, m, x;
+VI v(1000);
+
 signed main()
 {
-    return 0;
+    cin >> n >> m >> x;
+    v.resize(m);
+    REP(i, m){
+        cin >> v[i];
+    }
+
+    int index = (int)(lower_bound(ALL(v), x) - v.begin());
+    cout << min(m-index, index) << endl;
 }

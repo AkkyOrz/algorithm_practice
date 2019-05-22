@@ -17,7 +17,15 @@ typedef vector<PII> VP;
 #define ALL(x) (x).begin(), (x).end()
 #define DEBUG(x) cerr << #x << ": " << x << '\n'
 
-signed main()
-{
-    return 0;
+
+
+int a, b, x;
+
+signed main(){
+    cin >> a >> b >> x;
+    if (a <= x && x <= a+b){
+        cout << "YES" << endl;
+    } else {
+        cout << "NO" << endl;
+    }
 }
