@@ -26,4 +26,6 @@ int n, m, k;
 signed main()
 {
     cin >> n >> m >> k;
+
+    
 }
