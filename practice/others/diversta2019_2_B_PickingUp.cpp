@@ -43,10 +43,10 @@ signed main()
             cnt = max(cnt, mp[make_pair(dx, dy)]);
         }
     }
-    // if (n == 1){
-    //     cout << 1 << endl;
-    // } else {
+    if (n == 1){
+        cout << 1 << endl;
+    } else {
         cout << n - cnt << endl;
-    //}
+    }
     return 0;
 }
