@@ -1,3 +1,7 @@
+// prefix: atcoder
+// もしスニペットを変更したいときは、cpp.jsonを変更すれば良い
+
+
 #include <bits/stdc++.h>
 using namespace std;
 #define int long long
