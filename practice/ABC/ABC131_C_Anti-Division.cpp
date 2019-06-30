@@ -40,9 +40,9 @@ signed main()
     int pd = (b/d) - ((a-1)/d);
     int pcd = (b/lcm(c,d)) - ((a-1)/lcm(c,d));
 
-    DEBUG(pc);
-    DEBUG(pd);
-    DEBUG(pcd);
+    // DEBUG(pc);
+    // DEBUG(pd);
+    // DEBUG(pcd);
 
     cout << (b-a+1) -pc -  pd + pcd << endl;;
 

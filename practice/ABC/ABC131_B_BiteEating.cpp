@@ -28,7 +28,7 @@ signed main()
     FOR(i, l, n+l){
         sum += i;
     }
-    DEBUG(sum);
+    // DEBUG(sum);
     if (l < 0){
         if (n > -l){
             sum -= 0; 
