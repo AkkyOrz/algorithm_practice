@@ -16,19 +16,20 @@ typedef vector<PII> VP;
 #define REP(i, n) FOR(i, 0, n)
 #define ALL(x) (x).begin(), (x).end()
 #define DEBUG(x) cerr << #x << ": " << x << '\n'
+#define DEBUGP(x) cerr << #x << ": " << x.first << " \t" << x.second << '\n'
 
+string s;
 signed main()
 {
-    set<string> s;
-    s.insert("123");
-    s.insert(to_string(1) + "23");
-
-    for (auto itr = s.begin(); itr != s.end(); itr++){
-        cout << *itr << endl;
+    cin >> s;
+    if (s[0] == 'A'){
+        cout << 'T' << endl;
+    } else if (s[0] == 'T'){
+        cout << 'A' << endl;
+    } else if (s[0] == 'G'){
+        cout << 'C' << endl;
+    } else if (s[0] == 'C'){
+        cout << 'G' << endl;
     }
-
-    cout << (int)(numeric_limits<double>::infinity()) - 1 << endl;
-
     return 0;
 }
-

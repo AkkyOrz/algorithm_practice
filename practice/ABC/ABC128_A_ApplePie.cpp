@@ -16,19 +16,13 @@ typedef vector<PII> VP;
 #define REP(i, n) FOR(i, 0, n)
 #define ALL(x) (x).begin(), (x).end()
 #define DEBUG(x) cerr << #x << ": " << x << '\n'
+#define DEBUGP(x) cerr << #x << ": " << x.first << " \t" << x.second << '\n'
 
+int a, p;
 signed main()
 {
-    set<string> s;
-    s.insert("123");
-    s.insert(to_string(1) + "23");
+    cin >> a >> p;
 
-    for (auto itr = s.begin(); itr != s.end(); itr++){
-        cout << *itr << endl;
-    }
-
-    cout << (int)(numeric_limits<double>::infinity()) - 1 << endl;
-
+    cout << (3*a + p)/2 << endl;
     return 0;
 }
-
