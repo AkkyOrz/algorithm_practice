@@ -33,8 +33,6 @@
 *.app
 */a.out
 
-*/tests/
-
 
 .vscode/*
 !.vscode/settings.json
