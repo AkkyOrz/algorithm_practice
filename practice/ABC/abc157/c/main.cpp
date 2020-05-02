@@ -21,7 +21,32 @@ typedef vector<PII> VP;
 #define DEBUG(x) cerr << #x << ": " << x << '\n'
 #define DEBUGP(x) cerr << #x << ": " << x.first << " \t" << x.second << '\n'
 
-signed main()
-{
-	return 0;
+int n, m;
+VP v(5);
+
+signed main() {
+    cin >> n >> m;
+
+    v.resize(m);
+    REP(i, n) {
+        cin >> v[i].first >> v[i].second;
+    }
+
+    FOR(i, pow(10, n - 1), pow(10, n)) {
+        string s = to_string(i);
+        bool flag = true;
+        for (auto pa : v) {
+            if (s[pa.first - 1] != pa.second + '0') {
+                flag = false;
+            }
+        }
+        if (flag) {
+            cout << s << endl;
+            return 0;
+        }
+    }
+
+    cout << -1 << endl;
+
+    return 0;
 }

@@ -21,45 +21,55 @@ typedef vector<PII> VP;
 #define DEBUG(x) cerr << #x << ": " << x << '\n'
 #define DEBUGP(x) cerr << #x << ": " << x.first << " \t" << x.second << '\n'
 
-VVI v(3, VI(3));
+VVI v(3, VI(3, 0));
 bool check[3][3];
 int n;
 VI b(10);
-signed main()
-{
-	REP(i, 3){
-		REP(j, 3){
-			cin >> v[i][j];
-		}
-	}
-	cin >> n;
-	b.resize(n);
-	REP(i, n){
-		cin >> b[i];
-	}
+signed main() {
+    REP(i, 3) {
+        REP(j, 3) {
+            cin >> v[i][j];
+        }
+    }
+    cin >> n;
+    b.resize(n);
+    REP(i, n) {
+        cin >> b[i];
+    }
 
-	REP(i, 3){
-		REP(j, 3){
-			check[i][j] = false;
-			REP(k, n){
-				if (b[k] == check[i][j]) check[i][j] = true;
-			}
-		}
-	}
+    REP(i, 3) {
+        REP(j, 3) {
+            check[i][j] = false;
+            REP(k, n) {
+                if (b[k] == v[i][j]) {
+                    check[i][j] = true;
+                    break;
+                }
+            }
+        }
+    }
+    // REP(i, 3) {
+    //     REP(j, 3) {
+    //         cout << check[i][j] << endl;
+    //     }
+    // }
+    string s = "No";
 
-	string s = "No";
+    REP(i, 3) {
+        if (check[i][0] && check[i][1] && check[i][2])
+            s = "Yes";
+    }
 
-	REP(i, 3){
-		 if (check[i][0] && check[i][1] && check[i][2]) s = "Yes";
-	}
+    REP(i, 3) {
+        if (check[0][i] && check[1][i] && check[2][i])
+            s = "Yes";
+    }
 
-	REP(i, 3){
-		 if (check[0][i] && check[1][i] && check[2][i]) s = "Yes";
-	}
+    if (check[0][0] && check[1][1] && check[2][2])
+        s = "Yes";
+    if (check[0][2] && check[1][1] && check[2][0])
+        s = "Yes";
+    cout << s << endl;
 
-	if (check[0][0] && check[1][1] && check[2][2]) s = "Yes";
-	if (check[0][2] && check[1][1] && check[2][0]) s = "Yes";
-	cout << s << endl;
-
-	return 0;
+    return 0;
 }

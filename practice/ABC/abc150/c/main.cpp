@@ -22,32 +22,29 @@ int n;
 int p, q;
 VI ps, qs;
 
-signed main()
-{
+signed main() {
     cin >> n;
     REP(i, n) {
         int a;
         cin >> a;
-        p += a*pow(10, n - i - 1);
+        p += a * pow(10, n - i - 1);
     }
     REP(i, n) {
         int a;
         cin >> a;
-        q += a*pow(10, n - i - 1);
-
+        q += a * pow(10, n - i - 1);
     }
     VI pi;
     VI qi;
-    REP(i, n){ pi.push_back(i+1); }
-    REP(i, n){ qi.push_back(i+1); }
+    REP(i, n) { pi.push_back(i + 1); }
+    REP(i, n) { qi.push_back(i + 1); }
 
-    
     do {
         int a = 0;
         int b = 0;
         REP(i, n) {
-            a += pow(10, i) * pi[i]; 
-            b += pow(10, i) * qi[i]; 
+            a += pow(10, i) * pi[i];
+            b += pow(10, i) * qi[i];
         }
         ps.push_back(a);
         qs.push_back(b);
