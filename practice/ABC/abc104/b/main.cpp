@@ -1,27 +1,38 @@
-// @prefix atcoder
-// @description atcoder template
+#include <iostream>
+#include <algorithm>
+#include <ios>     // std::left, std::right
+#include <iomanip> // std::setw(int), std::setfill(char)
+#include <string>
+#include <cmath>
 
-#include <bits/stdc++.h>
 using namespace std;
-#define int long long
 
-// typedef
-//------------------------------------------
-typedef pair<int, int> PII;
-typedef vector<int> VI;
-typedef vector<VI> VVI;
-typedef vector<string> VS;
-typedef vector<PII> VP;
+int main(int argc, char const *argv[]) {
+    string S;
+    cin >> S;
+    bool keys[3] = {false, false, true};
+    if (S[0] == 'A') keys[0] = true;
 
-// rep
-//------------------------------------------
-#define FOR(i, a, b) for (int i = (a); i < (b); ++i)
-#define REP(i, n) FOR(i, 0, n)
-#define ALL(x) (x).begin(), (x).end()
-#define DEBUG(x) cerr << #x << ": " << x << '\n'
-#define DEBUGP(x) cerr << #x << ": " << x.first << " \t" << x.second << '\n'
+    int cnt = 0;
+    for (int i = 2; i < S.length()-1; i++){
+        if (S[i] == 'C') {
+            cnt++;
+        }
+    }
+    if (cnt == 1) keys[1] = true;
 
-signed main()
-{
-	return 0;
+    for (int i = 1; i < S.length(); i++){
+        if ('A' <= S[i] && S[i] <= 'Z'){
+            if (S[i] == 'C' && 2 <= i && i < S.length()-1) continue;
+            keys[2] = false;
+        }
+    }
+
+    if (keys[0] && keys[1] && keys[2]){
+        cout << "AC" << endl;
+    } else {
+        cout << "WA" << endl;
+    }
+
+    return 0;
 }

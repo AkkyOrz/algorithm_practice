@@ -1,6 +1,3 @@
-// @prefix atcoder
-// @description atcoder template
-
 #include <bits/stdc++.h>
 using namespace std;
 #define int long long
@@ -21,7 +18,16 @@ typedef vector<PII> VP;
 #define DEBUG(x) cerr << #x << ": " << x << '\n'
 #define DEBUGP(x) cerr << #x << ": " << x.first << " \t" << x.second << '\n'
 
+int n, k;
+
 signed main()
 {
-	return 0;
+    cin >> n >> k;
+
+
+    int res = n % k;
+    res = min(res, abs(n%k - k));
+
+    cout << res << endl;
+    return 0;
 }

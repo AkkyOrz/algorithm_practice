@@ -1,27 +1,24 @@
-// @prefix atcoder
-// @description atcoder template
-
-#include <bits/stdc++.h>
+#include <iostream>
+#include <algorithm>
+#include <ios>     // std::left, std::right
+#include <iomanip> // std::setw(int), std::setfill(char)
 using namespace std;
-#define int long long
 
-// typedef
-//------------------------------------------
-typedef pair<int, int> PII;
-typedef vector<int> VI;
-typedef vector<VI> VVI;
-typedef vector<string> VS;
-typedef vector<PII> VP;
-
-// rep
-//------------------------------------------
-#define FOR(i, a, b) for (int i = (a); i < (b); ++i)
-#define REP(i, n) FOR(i, 0, n)
-#define ALL(x) (x).begin(), (x).end()
-#define DEBUG(x) cerr << #x << ": " << x << '\n'
-#define DEBUGP(x) cerr << #x << ": " << x.first << " \t" << x.second << '\n'
-
-signed main()
-{
-	return 0;
+int main(){
+    int A, B, C;
+    int X;
+    int cnt = 0;
+    int num[3];
+    cin >> A >> B >> C >> X;
+    for (int a = 0; a <= A; a++){
+        for (int b = 0; b <= B; b++){
+            for (int c = 0; c <= C; c++){
+                int sum = 500*a + 100*b + 50*c;
+                if (sum == X){
+                    cnt++;
+                }
+            }
+        }
+    }
+    cout << cnt << endl;
 }

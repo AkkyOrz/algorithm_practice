@@ -1,49 +1,41 @@
-// @prefix atcoder
-// @description atcoder template
+#include <iostream>
 
-#include <bits/stdc++.h>
 using namespace std;
-#define int long long
 
-// typedef
-//------------------------------------------
-typedef pair<int, int> PII;
-typedef vector<int> VI;
-typedef vector<VI> VVI;
-typedef vector<string> VS;
-typedef vector<PII> VP;
+int main() {
+  string s;
+  cin >> s;
+  int n = s.size();
 
-// rep
-//------------------------------------------
-#define FOR(i, a, b) for (int i = (a); i < (b); ++i)
-#define REP(i, n) FOR(i, 0, n)
-#define ALL(x) (x).begin(), (x).end()
-#define DEBUG(x) cerr << #x << ": " << x << '\n'
-#define DEBUGP(x) cerr << #x << ": " << x.first << " \t" << x.second << '\n'
-
-int n, k;
-VP v;
-signed main() {
-    cin >> n >> k;
-    k--;
-
-    REP(i, n) {
-        int a, b;
-        cin >> a >> b;
-        v.push_back(make_pair(a, b));
+  long long total = 0;
+  // 文字の間に+が入る全パターンをbitを使って列挙
+  // cout << "-------------" << endl;
+  for (int bit = 0; bit < (1<<(n-1)); bit++) {
+    // +の場合を挿入していく
+    // とりあえず文字列で
+    string t;
+    for (int i = 0; i < n; i++) {
+      t += s[i];
+      if (bit & (1<<i)) {
+        t += "+";
+      }
     }
+    // cout << t << "=?" << endl;
 
-    sort(ALL(v), [](PII x, PII y) {
-        return x.first < y.first;
-    });
-
-    int now = 0;
-    FOR(i, 0, n) {
-        if (now <= k && k < v[i].second + now) {
-            cout << v[i].first << endl;
-            return 0;
-        }
-        now += v[i].second;
+    // あとは足し算してくだけ
+    long long sum = 0;
+    long long tmp = 0;
+    for (int i = 0; i < t.size(); i++) {
+      // cout << t[i] << endl;
+      if (t[i] == '+') {
+        sum += tmp;
+        tmp = 0;
+      } else {
+        tmp = tmp * 10 + (t[i] - '0');
+      }
     }
-    return 0;
+    sum += tmp;
+    total += sum;
+  }
+  cout << total << endl;
 }

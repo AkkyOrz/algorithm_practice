@@ -1,6 +1,3 @@
-// @prefix atcoder
-// @description atcoder template
-
 #include <bits/stdc++.h>
 using namespace std;
 #define int long long
@@ -21,7 +18,28 @@ typedef vector<PII> VP;
 #define DEBUG(x) cerr << #x << ": " << x << '\n'
 #define DEBUGP(x) cerr << #x << ": " << x.first << " \t" << x.second << '\n'
 
+int gcd(int a, int b) { return b ? gcd(b, a % b) : a; }
+
+int n;
 signed main()
 {
-	return 0;
+    cin >> n;
+
+    int res = 0;
+    FOR(i,1, n+1){
+        FOR(j, i, n+1){
+            FOR(k, j, n+1){
+                if (i != j && j != k && k != i){ 
+                    res += 6 * gcd(i, gcd(j, k));
+                } else if (i == j && j == k){
+                    res += i;
+                } else {
+                    res += 3 * (gcd(i, gcd(j, k)));
+                }
+            }
+        }
+    }
+
+    cout << res << endl;
+    return 0;
 }

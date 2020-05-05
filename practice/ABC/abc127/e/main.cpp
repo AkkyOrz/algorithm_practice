@@ -1,6 +1,3 @@
-// @prefix atcoder
-// @description atcoder template
-
 #include <bits/stdc++.h>
 using namespace std;
 #define int long long
@@ -19,9 +16,16 @@ typedef vector<PII> VP;
 #define REP(i, n) FOR(i, 0, n)
 #define ALL(x) (x).begin(), (x).end()
 #define DEBUG(x) cerr << #x << ": " << x << '\n'
-#define DEBUGP(x) cerr << #x << ": " << x.first << " \t" << x.second << '\n'
+
+const int MOD = 1e9 + 7;
+
+
+int n, m, k;
+
 
 signed main()
 {
-	return 0;
+    cin >> n >> m >> k;
+
+    
 }

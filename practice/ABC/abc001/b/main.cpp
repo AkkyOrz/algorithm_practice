@@ -1,27 +1,26 @@
-// @prefix atcoder
-// @description atcoder template
-
-#include <bits/stdc++.h>
+#include <iostream>
+#include <iomanip>
+#include <ios>
 using namespace std;
-#define int long long
 
-// typedef
-//------------------------------------------
-typedef pair<int, int> PII;
-typedef vector<int> VI;
-typedef vector<VI> VVI;
-typedef vector<string> VS;
-typedef vector<PII> VP;
+int main(){
+    int VV;
+    int m;
+    cin >> m;
 
-// rep
-//------------------------------------------
-#define FOR(i, a, b) for (int i = (a); i < (b); ++i)
-#define REP(i, n) FOR(i, 0, n)
-#define ALL(x) (x).begin(), (x).end()
-#define DEBUG(x) cerr << #x << ": " << x << '\n'
-#define DEBUGP(x) cerr << #x << ": " << x.first << " \t" << x.second << '\n'
+    if (m < 100){
+        VV = 0;
+    } else if (m <= 5000){
+        VV = m / 100.0;
+    } else if (6000 <= m && m <= 30000){
+        VV = m / 1000.0 + 50;
+    } else if (35000 <= m && m <= 70000){
+        VV =  (m / 1000.0 - 30) / 5 + 80;
+    } else if (m > 70000){
+        VV = 89;
+    }
 
-signed main()
-{
-	return 0;
+    cout << setfill('0') << right << setw(2) << VV << endl;
+
+    return 0;
 }

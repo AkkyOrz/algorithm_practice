@@ -1,6 +1,3 @@
-// @prefix atcoder
-// @description atcoder template
-
 #include <bits/stdc++.h>
 using namespace std;
 #define int long long
@@ -21,7 +18,23 @@ typedef vector<PII> VP;
 #define DEBUG(x) cerr << #x << ": " << x << '\n'
 #define DEBUGP(x) cerr << #x << ": " << x.first << " \t" << x.second << '\n'
 
+string s;
+
 signed main()
 {
-	return 0;
+    cin >> s;
+
+    int cnt_a = 0;
+    int cnt_b = 0;
+    REP(i, 3){
+        if (s[i] == 'A') cnt_a++;
+        if (s[i] == 'B') cnt_b++;
+    }
+
+    if (cnt_a == 3 || cnt_b == 3) {
+        cout << "No" << endl;
+    } else {
+        cout << "Yes" << endl;
+    }
+    return 0;
 }

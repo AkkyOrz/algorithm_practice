@@ -1,27 +1,43 @@
-// @prefix atcoder
-// @description atcoder template
-
 #include <bits/stdc++.h>
 using namespace std;
-#define int long long
 
-// typedef
-//------------------------------------------
-typedef pair<int, int> PII;
+typedef long long ll;
 typedef vector<int> VI;
-typedef vector<VI> VVI;
-typedef vector<string> VS;
-typedef vector<PII> VP;
 
-// rep
-//------------------------------------------
-#define FOR(i, a, b) for (int i = (a); i < (b); ++i)
-#define REP(i, n) FOR(i, 0, n)
-#define ALL(x) (x).begin(), (x).end()
-#define DEBUG(x) cerr << #x << ": " << x << '\n'
-#define DEBUGP(x) cerr << #x << ": " << x.first << " \t" << x.second << '\n'
+int n, m;
 
-signed main()
-{
-	return 0;
+bool is_con[12][12];
+
+vector<int> x(1000), y(1000);
+
+
+int main(){
+    cin >> n >> m;
+
+    for (int i = 0; i < m; i++){
+        cin >> x[i] >> y[i];
+        x[i]--; y[i]--;
+        is_con[x[i]][y[i]] = true;
+        is_con[y[i]][x[i]] = true;
+    }
+
+    int ma = -1;
+
+    for (int bit = 1; bit < (1<<n); bit++){
+
+        bool flag = true;
+        for(int i = 0; i < n; i++){
+            for (int j = 0; j < i; j++){
+                if (((bit>>i) & (bit>>j) & 1 ) && !is_con[i][j]){
+                    flag = false;
+                }
+            }
+        }
+        if (flag) {
+            int cnt = ((bitset<13>)bit).count();
+            ma = max(ma, cnt);
+        }
+    }
+
+    cout << ma << endl;
 }

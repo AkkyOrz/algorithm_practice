@@ -1,27 +1,54 @@
-// @prefix atcoder
-// @description atcoder template
-
-#include <bits/stdc++.h>
+#include <iostream>
+#include <algorithm>
+#include <string>
+#include <vector>
+#include <cmath>
+#include <map>
+#define MOD 1000000007
+#define INF (1ll<<60)
+typedef long long ll;
 using namespace std;
-#define int long long
 
-// typedef
-//------------------------------------------
-typedef pair<int, int> PII;
-typedef vector<int> VI;
-typedef vector<VI> VVI;
-typedef vector<string> VS;
-typedef vector<PII> VP;
+int n;
+int dp[310];
+int ng[3];
 
-// rep
-//------------------------------------------
-#define FOR(i, a, b) for (int i = (a); i < (b); ++i)
-#define REP(i, n) FOR(i, 0, n)
-#define ALL(x) (x).begin(), (x).end()
-#define DEBUG(x) cerr << #x << ": " << x << '\n'
-#define DEBUGP(x) cerr << #x << ": " << x.first << " \t" << x.second << '\n'
+bool check(int x){
+    return ng[0] != x && ng[1] != x && ng[2] != x && x >= 0 ;
+}
 
-signed main()
-{
-	return 0;
+void make_dp(int n){
+    dp[n] = 100;
+    if (!check(n)){
+        cout << "NO" << endl;
+        return;
+    }
+    for (int i = n; i > 0; ){
+        if (check(i-3)){
+            dp[i-3] = dp[i] - 1;
+            i -= 3;
+        } else if (check(i-2)){
+            dp[i-2] = dp[i] - 1;
+            i -= 2;
+        } else if (check(i-1)) {
+            dp[i-1] = dp[i] - 1;
+            i -= 1;
+        } else {
+            cout << "NO" << endl;
+            return;
+        }
+    }
+    if (dp[0] >= 0){
+        cout << "YES" << endl;
+    } else {
+        cout << "NO" << endl;
+    }
+}
+
+int main(){
+    cin >> n;
+    for (int i = 0; i < 3; i++){
+        cin >> ng[i];
+    }
+    make_dp(n);
 }

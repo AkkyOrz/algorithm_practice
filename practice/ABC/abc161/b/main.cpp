@@ -1,6 +1,3 @@
-// @prefix atcoder
-// @description atcoder template
-
 #include <bits/stdc++.h>
 using namespace std;
 #define int long long
@@ -21,7 +18,25 @@ typedef vector<PII> VP;
 #define DEBUG(x) cerr << #x << ": " << x << '\n'
 #define DEBUGP(x) cerr << #x << ": " << x.first << " \t" << x.second << '\n'
 
+int n, m;
+VI a(1999);
 signed main()
 {
-	return 0;
+    cin >> n >> m;
+    a.resize(n);
+    REP(i, n){
+        cin >> a[i];
+    }
+
+    sort(ALL(a));
+    reverse(ALL(a));
+
+    int sum = accumulate(ALL(a), 0);
+
+    if (a[m-1] * 4 * m >= sum) {
+        cout << "Yes" << endl;
+    } else {
+        cout << "No" << endl;
+    }
+    return 0;
 }

@@ -1,27 +1,33 @@
-// @prefix atcoder
-// @description atcoder template
-
 #include <bits/stdc++.h>
 using namespace std;
-#define int long long
 
-// typedef
-//------------------------------------------
-typedef pair<int, int> PII;
-typedef vector<int> VI;
-typedef vector<VI> VVI;
-typedef vector<string> VS;
-typedef vector<PII> VP;
+typedef long long ll;
+const int INF = 1 << 30;
 
-// rep
-//------------------------------------------
-#define FOR(i, a, b) for (int i = (a); i < (b); ++i)
-#define REP(i, n) FOR(i, 0, n)
-#define ALL(x) (x).begin(), (x).end()
-#define DEBUG(x) cerr << #x << ": " << x << '\n'
-#define DEBUGP(x) cerr << #x << ": " << x.first << " \t" << x.second << '\n'
+int m[26], r[26];
 
-signed main()
-{
-	return 0;
+int main(){
+    for (int i = 0; i < 26; i++){
+        m[i] = -1;
+        r[i] = -1;
+    } 
+
+    string s, t;
+    cin >> s >> t;
+
+    for (int i = 0; i < s.size(); i++){
+        int s_i = s[i] - 'a';
+        int t_i = t[i] - 'a';
+        if (m[s_i] != -1 || r[t_i] != -1){
+            if (m[s_i] != t_i || r[t_i] != s_i){
+                cout << "No" << endl;
+                return 0;
+            }
+        } else {
+            m[s_i] = t_i;
+            r[t_i] = s_i;
+        }
+    }
+
+    cout << "Yes" << endl;
 }

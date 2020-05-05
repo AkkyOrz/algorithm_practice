@@ -1,27 +1,44 @@
-// @prefix atcoder
-// @description atcoder template
-
 #include <bits/stdc++.h>
+
+#include <iostream>
+#include <limits>
+#include <numeric>
+#include <type_traits>
 using namespace std;
-#define int long long
 
-// typedef
-//------------------------------------------
-typedef pair<int, int> PII;
-typedef vector<int> VI;
-typedef vector<VI> VVI;
-typedef vector<string> VS;
-typedef vector<PII> VP;
+typedef long long ll;
 
-// rep
-//------------------------------------------
-#define FOR(i, a, b) for (int i = (a); i < (b); ++i)
-#define REP(i, n) FOR(i, 0, n)
-#define ALL(x) (x).begin(), (x).end()
-#define DEBUG(x) cerr << #x << ": " << x << '\n'
-#define DEBUGP(x) cerr << #x << ": " << x.first << " \t" << x.second << '\n'
 
-signed main()
-{
-	return 0;
+int N;
+int X;
+int x[100000];
+
+int gcd(int a, int b){
+    if(a < b) gcd(b, a);
+    int r;
+    while ((r=a%b)) {
+        a = b;
+        b = r;
+    }
+    return b;
+}
+
+
+int main(){
+    cin >> N >> X;
+    for (int i = 0; i < N; i++){
+        cin >> x[i];
+    }
+    for (int i = 0; i < N; i++){
+        if (x[i] - X > 0){
+            x[i] = x[i] - X;
+        } else {
+            x[i] = X - x[i];
+        }
+    }
+    int g = x[0];
+    for (int i = 1; i < N; i++){
+        g = gcd(g, x[i]);
+    }
+    cout << g << endl;
 }

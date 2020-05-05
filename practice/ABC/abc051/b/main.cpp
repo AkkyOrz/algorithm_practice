@@ -1,27 +1,33 @@
-// @prefix atcoder
-// @description atcoder template
+#include <iostream>
+#include <algorithm>
+#include <ios>     // std::left, std::right
+#include <iomanip> // std::setw(int), std::setfill(char)
+#include <string>
+#include <cmath>
 
-#include <bits/stdc++.h>
 using namespace std;
-#define int long long
 
-// typedef
-//------------------------------------------
-typedef pair<int, int> PII;
-typedef vector<int> VI;
-typedef vector<VI> VVI;
-typedef vector<string> VS;
-typedef vector<PII> VP;
+int main(){
+    int K,S;
+    int res = 0;
 
-// rep
-//------------------------------------------
-#define FOR(i, a, b) for (int i = (a); i < (b); ++i)
-#define REP(i, n) FOR(i, 0, n)
-#define ALL(x) (x).begin(), (x).end()
-#define DEBUG(x) cerr << #x << ": " << x << '\n'
-#define DEBUGP(x) cerr << #x << ": " << x.first << " \t" << x.second << '\n'
+    cin >> K >> S;
 
-signed main()
-{
-	return 0;
+    for (int x = 0; x <= K; x++){
+        for (int y = x; y <= K; y++){
+            for (int z = y; z <= K; z++){
+                int total = x + y + z;
+                if (total == S){
+                    if (x == y && y == z){
+                        res += 1;
+                    } else if (x == y || y == z || z == x){
+                        res += 3;
+                    } else {
+                        res += 6;
+                    }
+                }
+            }
+        }
+    }
+    cout << res << endl;
 }

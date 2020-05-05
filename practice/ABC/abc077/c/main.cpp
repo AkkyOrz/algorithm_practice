@@ -1,27 +1,34 @@
-// @prefix atcoder
-// @description atcoder template
+#include <iostream>
+#include <algorithm>
+#include <vector>
 
-#include <bits/stdc++.h>
 using namespace std;
-#define int long long
 
-// typedef
-//------------------------------------------
-typedef pair<int, int> PII;
-typedef vector<int> VI;
-typedef vector<VI> VVI;
-typedef vector<string> VS;
-typedef vector<PII> VP;
+int main(){
+    int n;
 
-// rep
-//------------------------------------------
-#define FOR(i, a, b) for (int i = (a); i < (b); ++i)
-#define REP(i, n) FOR(i, 0, n)
-#define ALL(x) (x).begin(), (x).end()
-#define DEBUG(x) cerr << #x << ": " << x << '\n'
-#define DEBUGP(x) cerr << #x << ": " << x.first << " \t" << x.second << '\n'
+    cin >> n;
+    vector<int> a(n);
+    vector<int> b(n);
+    vector<int> c(n);
+    for (int i = 0; i < n; i++){
+        cin >> a[i];
+    }
+    for (int i = 0; i < n; i++){
+        cin >> b[i];
+    }
+    for (int i = 0; i < n; i++){
+        cin >> c[i];
+    }
 
-signed main()
-{
-	return 0;
+    sort(a.begin(), a.end());
+    sort(c.begin(), c.end());
+    long long sum = 0;
+    long long j, k;
+    for (int i = 0; i < n; i++){
+        j = lower_bound(a.begin(), a.end(), b[i]) - a.begin();
+        k = n-(upper_bound(c.begin(), c.end(), b[i]) - c.begin()) ;
+        sum += j*k;
+    }
+    cout << sum << endl;
 }

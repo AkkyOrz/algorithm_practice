@@ -1,27 +1,40 @@
-// @prefix atcoder
-// @description atcoder template
-
-#include <bits/stdc++.h>
+#include <iostream>
+#include <algorithm>
+#include <string>
+#include <vector>
+#include <math.h>
+#define MOD 1000000007
+#define INF (1ll<<60)
+#define MAX 100005
+typedef long long ll;
 using namespace std;
-#define int long long
 
-// typedef
-//------------------------------------------
-typedef pair<int, int> PII;
-typedef vector<int> VI;
-typedef vector<VI> VVI;
-typedef vector<string> VS;
-typedef vector<PII> VP;
+int n;
+int a[200000];
 
-// rep
-//------------------------------------------
-#define FOR(i, a, b) for (int i = (a); i < (b); ++i)
-#define REP(i, n) FOR(i, 0, n)
-#define ALL(x) (x).begin(), (x).end()
-#define DEBUG(x) cerr << #x << ": " << x << '\n'
-#define DEBUGP(x) cerr << #x << ": " << x.first << " \t" << x.second << '\n'
+bool check(int bset, int a){
+    return (bset ^ a) == (bset + a);
+}
 
-signed main()
-{
-	return 0;
+int main(){
+    cin >> n;
+    for (int i = 0; i < n; i++){
+        cin >> a[i];
+    }
+
+    int l = 0, r = 0;
+    long long num = 0, bset = 0;
+    for(;l < n;l++){
+        while (r < n && check(bset, a[r])){
+            bset += a[r];
+            r++;
+        }
+        num += (r-l);
+
+        if (r == l) r++;
+        else {
+            bset -= a[l];
+        }
+    }
+    cout << num << endl;
 }

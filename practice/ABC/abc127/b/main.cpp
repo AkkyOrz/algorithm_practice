@@ -1,6 +1,3 @@
-// @prefix atcoder
-// @description atcoder template
-
 #include <bits/stdc++.h>
 using namespace std;
 #define int long long
@@ -19,9 +16,16 @@ typedef vector<PII> VP;
 #define REP(i, n) FOR(i, 0, n)
 #define ALL(x) (x).begin(), (x).end()
 #define DEBUG(x) cerr << #x << ": " << x << '\n'
-#define DEBUGP(x) cerr << #x << ": " << x.first << " \t" << x.second << '\n'
 
+
+int r, d, x;
 signed main()
 {
-	return 0;
+    cin >> r >> d >> x;
+
+    int res = r;
+    FOR(i, 1, 11){    
+        x = r*x - d;
+        cout << x << endl;
+    }
 }

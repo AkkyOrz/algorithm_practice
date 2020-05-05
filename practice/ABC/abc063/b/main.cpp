@@ -1,27 +1,23 @@
-// @prefix atcoder
-// @description atcoder template
+#include <iostream>
+#include <algorithm>
+#include <ios>     // std::left, std::right
+#include <iomanip> // std::setw(int), std::setfill(char)
+#include <string>
 
-#include <bits/stdc++.h>
 using namespace std;
-#define int long long
 
-// typedef
-//------------------------------------------
-typedef pair<int, int> PII;
-typedef vector<int> VI;
-typedef vector<VI> VVI;
-typedef vector<string> VS;
-typedef vector<PII> VP;
+int main(){
+    string S;
+    cin >> S;
+    for (int i = 0; i < S.length(); i++){
+        for (int j = i+1; j < S.length(); j++){
+            if (S[i] == S[j]) {
+                cout << "no" << endl;
+                return 0;
+            }
+        }
+    }
+    cout << "yes" << endl;
 
-// rep
-//------------------------------------------
-#define FOR(i, a, b) for (int i = (a); i < (b); ++i)
-#define REP(i, n) FOR(i, 0, n)
-#define ALL(x) (x).begin(), (x).end()
-#define DEBUG(x) cerr << #x << ": " << x << '\n'
-#define DEBUGP(x) cerr << #x << ": " << x.first << " \t" << x.second << '\n'
-
-signed main()
-{
-	return 0;
+    return 0;
 }

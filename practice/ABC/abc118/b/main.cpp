@@ -1,27 +1,31 @@
-// @prefix atcoder
-// @description atcoder template
-
 #include <bits/stdc++.h>
 using namespace std;
-#define int long long
 
-// typedef
-//------------------------------------------
-typedef pair<int, int> PII;
-typedef vector<int> VI;
-typedef vector<VI> VVI;
-typedef vector<string> VS;
-typedef vector<PII> VP;
+typedef long long ll;
 
-// rep
-//------------------------------------------
-#define FOR(i, a, b) for (int i = (a); i < (b); ++i)
-#define REP(i, n) FOR(i, 0, n)
-#define ALL(x) (x).begin(), (x).end()
-#define DEBUG(x) cerr << #x << ": " << x << '\n'
-#define DEBUGP(x) cerr << #x << ": " << x.first << " \t" << x.second << '\n'
+int n , m;
 
-signed main()
-{
-	return 0;
+int a[30][30];
+vector<int> cnt(30);
+int k[30];
+
+int main(){
+    cin >> n >> m;
+    cnt.resize(m+1);
+    for (int i = 0; i < n; i++){
+        cin >> k[i];
+        for (int j = 0; j < k[i]; j++){
+            cin >> a[i][j] ;
+            cnt[a[i][j]]++;
+        }
+    }
+
+    int res = 0;
+    for (int i = 1; i <= m; i++){
+        if (cnt[i] == n){
+            res++;
+        }
+    }
+
+    cout << res << endl;
 }

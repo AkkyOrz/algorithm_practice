@@ -1,27 +1,39 @@
-// @prefix atcoder
-// @description atcoder template
+#include <iostream>
+#include <iomanip>
 
-#include <bits/stdc++.h>
 using namespace std;
-#define int long long
 
-// typedef
-//------------------------------------------
-typedef pair<int, int> PII;
-typedef vector<int> VI;
-typedef vector<VI> VVI;
-typedef vector<string> VS;
-typedef vector<PII> VP;
+int main(){
+    string s;
+    cin >> s;
+    int n = s.size();
 
-// rep
-//------------------------------------------
-#define FOR(i, a, b) for (int i = (a); i < (b); ++i)
-#define REP(i, n) FOR(i, 0, n)
-#define ALL(x) (x).begin(), (x).end()
-#define DEBUG(x) cerr << #x << ": " << x << '\n'
-#define DEBUGP(x) cerr << #x << ": " << x.first << " \t" << x.second << '\n'
-
-signed main()
-{
-	return 0;
+    for (int bit = 0; bit < 1<<(n-1); bit++){
+        // cout << setfill('0') << bitset<3>(bit) << endl;
+        int sum = s[0] - '0';
+        /* +-を挿入した文字列tを作成する。*/
+        for (int i = 1; i < n; i++){
+            if (bit & (1 << (i-1))){
+                sum += s[i] - '0';
+            } else {
+                sum -= s[i] - '0';
+            }
+        }
+        if (sum == 7){
+            string t;
+            for (int i = 0; i < n-1; i++){
+                t += s[i];
+                if (bit & (1 << i)){
+                    t += '+';
+                } else {
+                    t += '-';
+                }
+            }
+            t += s[n-1];
+            t += '=';
+            t += to_string(sum);
+            cout << t << endl;
+            return 0;
+        }
+    }
 }
