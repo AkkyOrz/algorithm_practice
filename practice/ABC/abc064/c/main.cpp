@@ -26,31 +26,29 @@ VI a(100);
 VI col(8, 0);
 
 signed main() {
-    cin >> n;
-    a.resize(n);
-    REP(i, n) {
-        cin >> a[i];
+  cin >> n;
+  a.resize(n);
+  REP(i, n) { cin >> a[i]; }
+  sort(ALL(a));
+  int res = 0;
+  int wild = 0;
+  REP(i, n) {
+    if (a[i] >= 3200) {
+      wild++;
+    } else {
+      col[a[i] / 400]++;
     }
-    sort(ALL(a));
-    int res = 0;
-    int wild = 0;
-    REP(i, n) {
-        if (a[i] >= 3200) {
-            wild++;
-        } else {
-            col[a[i] / 400]++;
-        }
-    }
+  }
 
-    for (auto c : col) {
-        if (c > 0) {
-            res++;
-        }
+  for (auto c : col) {
+    if (c > 0) {
+      res++;
     }
+  }
 
-    int mi, ma;
-    mi = max(res, 1LL);
-    ma = res + wild;
-    cout << mi << " " << ma << endl;
-    return 0;
+  int mi, ma;
+  mi = max(res, 1LL);
+  ma = res + wild;
+  cout << mi << " " << ma << endl;
+  return 0;
 }
