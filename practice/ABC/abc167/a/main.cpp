@@ -20,31 +20,21 @@ typedef vector<PII> VP;
 #define ALL(x) (x).begin(), (x).end()
 #define DEBUG(x) cerr << #x << ": " << x << '\n'
 #define DEBUGP(x) cerr << #x << ": " << x.first << " \t" << x.second << '\n'
+#define INF (1ll<<60)
 
-int n;
-map<int, int> mp;
+int gcd(int a, int b) { return b ? gcd(b, a % b) : a; }
+int lcm(int a, int b) { return a / gcd(a, b) * b; }
+const int MOD = 1e9 + 7;
+
+string s, t;
 
 signed main()
 {
-	cin >> n;
-	REP(i, n){
-		int a;
-		cin >> a;
-		if (mp[a] != 0){
-			mp[a] = 0;
-		} else {
-			mp[a] = 1;
-		}
+	cin >> s >> t;
+	if (s.substr(0, s.size()) == t.substr(0, t.size()-1)) {
+		cout << "Yes" << endl;
+	} else {
+		cout << "No" << endl;
 	}
-
-	int cnt = 0;
-	for (auto itr = mp.begin(); itr != mp.end(); itr++){
-        if (itr-> second == 1){
-			cnt++;
-		}
-    }
-
-	cout << cnt << endl;
-
 	return 0;
 }

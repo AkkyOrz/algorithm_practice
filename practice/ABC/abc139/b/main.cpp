@@ -21,7 +21,22 @@ typedef vector<PII> VP;
 #define DEBUG(x) cerr << #x << ": " << x << '\n'
 #define DEBUGP(x) cerr << #x << ": " << x.first << " \t" << x.second << '\n'
 
+int a, b;
+
 signed main()
 {
+	cin >> a >> b;
+
+	int cnt = 0;
+	int now = 1;
+	REP(i, 20){
+		if (b <= now) break;
+		now += (a-1);
+		DEBUG(now);
+		cnt++;
+	}
+
+	cout << cnt << endl;
 	return 0;
 }
+
