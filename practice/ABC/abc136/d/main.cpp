@@ -21,7 +21,14 @@ typedef vector<PII> VP;
 #define DEBUG(x) cerr << #x << ": " << x << '\n'
 #define DEBUGP(x) cerr << #x << ": " << x.first << " \t" << x.second << '\n'
 
-signed main()
-{
-	return 0;
+string s;
+
+vector<pair<char, int>> v;
+
+signed main() {
+  cin >> s;
+
+  int cnt = 0;
+
+  return 0;
 }

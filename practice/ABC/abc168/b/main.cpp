@@ -26,33 +26,17 @@ int gcd(int a, int b) { return b ? gcd(b, a % b) : a; }
 int lcm(int a, int b) { return a / gcd(a, b) * b; }
 const int MOD = 1e9 + 7;
 
-int n, a, b;
+int k;
 string s;
-signed main() {
-  cin >> n >> a >> b >> s;
 
-  int cnt = 0;
-  int cntb = 0;
-  REP(i, n) {
-    char ch = s[i];
-    if (ch == 'a') {
-      if (a + b > cnt) {
-        cnt++;
-        cout << "Yes" << endl;
-      } else {
-        cout << "No" << endl;
-      }
-    } else if (ch == 'b') {
-      if (a + b > cnt && b > cntb) {
-        cnt++;
-        cntb++;
-        cout << "Yes" << endl;
-      } else {
-        cout << "No" << endl;
-      }
-    } else {
-      cout << "No" << endl;
-    }
+signed main() {
+  cin >> k;
+  cin >> s;
+
+  if (s.size() <= k) {
+    cout << s << endl;
+  } else {
+    cout << s.substr(0, k) + "..." << endl;
   }
   return 0;
 }

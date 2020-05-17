@@ -26,33 +26,26 @@ int gcd(int a, int b) { return b ? gcd(b, a % b) : a; }
 int lcm(int a, int b) { return a / gcd(a, b) * b; }
 const int MOD = 1e9 + 7;
 
-int n, a, b;
-string s;
-signed main() {
-  cin >> n >> a >> b >> s;
+int n;
+VP p;
+map<PII, int> mp;
 
-  int cnt = 0;
-  int cntb = 0;
+signed main() {
+  cin >> n;
   REP(i, n) {
-    char ch = s[i];
-    if (ch == 'a') {
-      if (a + b > cnt) {
-        cnt++;
-        cout << "Yes" << endl;
-      } else {
-        cout << "No" << endl;
-      }
-    } else if (ch == 'b') {
-      if (a + b > cnt && b > cntb) {
-        cnt++;
-        cntb++;
-        cout << "Yes" << endl;
-      } else {
-        cout << "No" << endl;
-      }
+    int a, b;
+    cin >> a >> b;
+    int g = gcd(a, b);
+    a /= g;
+    b /= g;
+    p.push_back(make_pair(a, b));
+    if (mp.count(make_pair(a, b))) {
+      mp[make_pair(a, b)] = 1;
     } else {
-      cout << "No" << endl;
+      mp[make_pair(a, b)]++;
     }
   }
+  sort(ALL(p));
+
   return 0;
 }

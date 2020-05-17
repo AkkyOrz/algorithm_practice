@@ -26,33 +26,49 @@ int gcd(int a, int b) { return b ? gcd(b, a % b) : a; }
 int lcm(int a, int b) { return a / gcd(a, b) * b; }
 const int MOD = 1e9 + 7;
 
-int n, a, b;
-string s;
-signed main() {
-  cin >> n >> a >> b >> s;
+int n, m;
+VVI mp(100010);
+vector<bool> visited(100000);
+VI mark(100000);
 
-  int cnt = 0;
-  int cntb = 0;
-  REP(i, n) {
-    char ch = s[i];
-    if (ch == 'a') {
-      if (a + b > cnt) {
-        cnt++;
-        cout << "Yes" << endl;
-      } else {
-        cout << "No" << endl;
+signed main() {
+  cin >> n >> m;
+  REP(i, m) {
+    int a, b;
+    cin >> a >> b;
+    a--, b--;
+    mp[a].push_back(b);
+    mp[b].push_back(a);
+  }
+
+  queue<int> q;
+  q.push(0);
+  visited[0] = true;
+
+  while (q.empty() != true) {
+    int v = q.front();
+    q.pop();
+    for (auto next_v : mp[v]) {
+      if (visited[next_v] == false) {
+        DEBUGP(make_pair(v, next_v));
+        mark[next_v] = v;
+        visited[next_v] = true;
+        q.push(next_v);
       }
-    } else if (ch == 'b') {
-      if (a + b > cnt && b > cntb) {
-        cnt++;
-        cntb++;
-        cout << "Yes" << endl;
-      } else {
-        cout << "No" << endl;
-      }
-    } else {
-      cout << "No" << endl;
     }
+  }
+
+  bool flag = true;
+  REP(i, n) {
+    if (visited[i])
+      continue;
+    flag = false;
+  }
+  if (flag) {
+    cout << "Yes" << endl;
+    FOR(i, 1, n) { cout << mark[i] + 1 << endl; }
+  } else {
+    cout << "No" << endl;
   }
   return 0;
 }
