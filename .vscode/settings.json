@@ -1,5 +1,6 @@
 {
     "files.associations": {
+        "**/ansible/*.yml": "ansible",
         "array": "cpp",
         "deque": "cpp",
         "forward_list": "cpp",
@@ -13,6 +14,7 @@
         "regex": "cpp",
         "valarray": "cpp",
         "ostream": "cpp",
-        "random": "cpp"
+        "random": "cpp",
+        "iostream": "cpp"
     }
 }
