@@ -21,7 +21,14 @@ typedef vector<PII> VP;
 #define DEBUG(x) cerr << #x << ": " << x << '\n'
 #define DEBUGP(x) cerr << #x << ": " << x.first << " \t" << x.second << '\n'
 
-signed main()
-{
-	return 0;
+int n, k;
+VI x(1000);
+signed main() {
+  cin >> n >> k;
+  REP(i, n) { cin >> x[i]; }
+
+  int sum = 0;
+  REP(i, n) { sum += min(x[i], k - x[i]); }
+  cout << sum * 2 << endl;
+  return 0;
 }

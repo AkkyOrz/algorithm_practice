@@ -21,7 +21,27 @@ typedef vector<PII> VP;
 #define DEBUG(x) cerr << #x << ": " << x << '\n'
 #define DEBUGP(x) cerr << #x << ": " << x.first << " \t" << x.second << '\n'
 
-signed main()
-{
-	return 0;
+int n;
+VI a(101);
+signed main() {
+
+  cin >> n;
+  REP(i, n) { cin >> a[i]; }
+  a.resize(n);
+  sort(ALL(a), [](int a, int b) { return a > b; });
+
+  int alice = 0;
+  int bob = 0;
+
+  REP(i, n) {
+    if (i % 2 == 0) {
+      alice += a[i];
+    } else {
+      bob += a[i];
+    }
+  }
+
+  cout << alice - bob << endl;
+
+  return 0;
 }
