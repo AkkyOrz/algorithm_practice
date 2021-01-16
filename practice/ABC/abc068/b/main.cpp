@@ -21,7 +21,17 @@ typedef vector<PII> VP;
 #define DEBUG(x) cerr << #x << ": " << x << '\n'
 #define DEBUGP(x) cerr << #x << ": " << x.first << " \t" << x.second << '\n'
 
-signed main()
-{
-	return 0;
+int n;
+
+signed main() {
+
+  cin >> n;
+  int res = 1;
+  REP(i, 6) {
+    if (res * 2 <= n)
+      res *= 2;
+  }
+
+  cout << res << endl;
+  return 0;
 }
