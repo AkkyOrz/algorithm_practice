@@ -20,11 +20,20 @@ typedef vector<PII> VP;
 #define ALL(x) (x).begin(), (x).end()
 #define DEBUG(x) cerr << #x << ": " << x << '\n'
 #define DEBUGP(x) cerr << #x << ": " << x.first << " \t" << x.second << '\n'
+#define INF (1ll << 60)
 
+int gcd(int a, int b) { return b ? gcd(b, a % b) : a; }
+int lcm(int a, int b) { return a / gcd(a, b) * b; }
+const int MOD = 1e9 + 7;
+
+string s;
 signed main() {
-  int a;
-  cin >> a;
-  cout << a * a << endl;
+  cin >> s;
+  if (s.back() == 's') {
+    cout << s + "es" << endl;
 
+  } else {
+    cout << s + "s" << endl;
+  }
   return 0;
 }
