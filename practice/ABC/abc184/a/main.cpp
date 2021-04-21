@@ -26,4 +26,9 @@ int gcd(int a, int b) { return b ? gcd(b, a % b) : a; }
 int lcm(int a, int b) { return a / gcd(a, b) * b; }
 const int MOD = 1e9 + 7;
 
-signed main() { return 0; }
+int a, b, c, d;
+signed main() {
+  cin >> a >> b >> c >> d;
+  cout << a * d - b * c << endl;
+  return 0;
+}

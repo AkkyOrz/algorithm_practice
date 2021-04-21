@@ -59,6 +59,9 @@
                 "reveal": "always",
                 "focus": true,
                 "panel": "shared",
+            },
+            "options": {
+                "cwd": "/home/akky/.anyenv/envs/nodenv/shims"
             }
         },
     ]

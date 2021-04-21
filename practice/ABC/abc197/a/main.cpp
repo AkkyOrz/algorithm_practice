@@ -26,28 +26,11 @@ int gcd(int a, int b) { return b ? gcd(b, a % b) : a; }
 int lcm(int a, int b) { return a / gcd(a, b) * b; }
 const int MOD = 1e9 + 7;
 
-int a, b, c, d;
-
-bool check_1(int x, int y) { return abs(x) == abs(y) || abs(x) + abs(y) <= 3; }
-bool check_2(int x, int y) {
-  return (abs(y) <= abs(x) + 3 && abs(y) >= abs(x) - 3) || (x + y) % 2 == 0 ||
-         (abs(x) + abs(y) <= 6);
-}
+string a;
 
 signed main() {
-  cin >> a >> b >> c >> d;
+  cin >> a;
 
-  int x = c - a;
-  int y = d - b;
-
-  if (x == 0 && y == 0) {
-    cout << 0 << endl;
-  } else if (check_1(x, y)) {
-    cout << 1 << endl;
-  } else if (check_2(x, y)) {
-    cout << 2 << endl;
-  } else {
-    cout << 3 << endl;
-  }
+  cout << a[1] << a[2] << a[0] << endl;
   return 0;
 }
