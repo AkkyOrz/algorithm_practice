@@ -1,7 +1,6 @@
 // prefix: atcoder
 // もしスニペットを変更したいときは、cpp.jsonを変更すれば良い
 
-
 #include <bits/stdc++.h>
 using namespace std;
 #define int long long
@@ -21,7 +20,12 @@ typedef vector<PII> VP;
 #define ALL(x) (x).begin(), (x).end()
 #define DEBUG(x) cerr << #x << ": " << x << '\n'
 
-signed main()
-{
-    return 0;
+void printAns(bool flag) {
+  if (flag) {
+    cout << "Yes" << endl;
+  } else {
+    cout << "No" << endl;
+  }
 }
+
+signed main() { return 0; }

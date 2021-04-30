@@ -20,31 +20,25 @@ typedef vector<PII> VP;
 #define ALL(x) (x).begin(), (x).end()
 #define DEBUG(x) cerr << #x << ": " << x << '\n'
 #define DEBUGP(x) cerr << #x << ": " << x.first << " \t" << x.second << '\n'
+#define INF (1ll << 60)
 
-void printAns(bool flag) {
-  if (flag) {
-    cout << "YES" << endl;
-  } else {
-    cout << "NO" << endl;
-  }
-}
+int gcd(int a, int b) { return b ? gcd(b, a % b) : a; }
+int lcm(int a, int b) { return a / gcd(a, b) * b; }
+const int MOD = 1e9 + 7;
+
+int n;
 
 signed main() {
-  string x;
-  cin >> x;
+  cin >> n;
 
-  bool flag = true;
-
-  while (x.length() > 0 && flag) {
-    if (x.substr(0, 2) == "ch") {
-      x = x.substr(2, x.length() - 2);
-    } else if (x[0] == 'o' || x[0] == 'k' || x[0] == 'u') {
-      x = x.substr(1, x.length() - 1);
-    } else {
-      flag = false;
-    }
+  if (n == 1) {
+    cout << "Not Prime" << endl;
+  } else if (n == 2 || n == 3 || n == 5) {
+    cout << "Prime" << endl;
+  } else if (n % 2 != 0 && n % 3 != 0 && n % 5 != 0) {
+    cout << "Prime" << endl;
+  } else {
+    cout << "Not Prime" << endl;
   }
-
-  printAns(flag);
   return 0;
 }

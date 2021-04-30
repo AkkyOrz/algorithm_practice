@@ -20,31 +20,21 @@ typedef vector<PII> VP;
 #define ALL(x) (x).begin(), (x).end()
 #define DEBUG(x) cerr << #x << ": " << x << '\n'
 #define DEBUGP(x) cerr << #x << ": " << x.first << " \t" << x.second << '\n'
+#define INF (1ll<<60)
+
+int gcd(int a, int b) { return b ? gcd(b, a % b) : a; }
+int lcm(int a, int b) { return a / gcd(a, b) * b; }
+const int MOD = 1e9 + 7;
 
 void printAns(bool flag) {
   if (flag) {
-    cout << "YES" << endl;
+    cout << "Yes" << endl;
   } else {
-    cout << "NO" << endl;
+    cout << "No" << endl;
   }
 }
 
-signed main() {
-  string x;
-  cin >> x;
-
-  bool flag = true;
-
-  while (x.length() > 0 && flag) {
-    if (x.substr(0, 2) == "ch") {
-      x = x.substr(2, x.length() - 2);
-    } else if (x[0] == 'o' || x[0] == 'k' || x[0] == 'u') {
-      x = x.substr(1, x.length() - 1);
-    } else {
-      flag = false;
-    }
-  }
-
-  printAns(flag);
-  return 0;
+signed main()
+{
+	return 0;
 }
