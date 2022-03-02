@@ -21,7 +21,30 @@ typedef vector<PII> VP;
 #define DEBUG(x) cerr << #x << ": " << x << '\n'
 #define DEBUGP(x) cerr << #x << ": " << x.first << " \t" << x.second << '\n'
 
-signed main()
-{
-	return 0;
+signed main() {
+  int n;
+  string s;
+  cin >> n;
+  cin >> s;
+
+  string t = "b";
+  int i = 1;
+  for (; 2 * i + 1 <= n; i++) {
+    if (i % 3 == 1) {
+      t = "a" + t + "c";
+    }
+    if (i % 3 == 2) {
+      t = "c" + t + "a";
+    }
+    if (i % 3 == 0) {
+      t = "b" + t + "b";
+    }
+  }
+
+  if (s.compare(t) == 0)
+    cout << i - 1 << endl;
+  else
+    cout << -1 << endl;
+
+  return 0;
 }

@@ -44,7 +44,7 @@
         {
             "label": "CheckTestCase",
             "type": "shell",
-            "command": "cd ${fileDirname} && rm -f ${fileDirname}/${fileBasenameNoExtension} && g++ -std=gnu++17 ${fileBasename} -o ${fileBasenameNoExtension} && /home/akky/.pyenv/versions/3.7.2/bin/oj test -c \"${fileDirname}/${fileBasenameNoExtension}\" -d ${fileDirname}/tests/",
+            "command": "cd ${fileDirname} && rm -f ${fileDirname}/${fileBasenameNoExtension} && g++ -std=gnu++17 ${fileBasename} -o ${fileBasenameNoExtension} && ~/.anyenv/envs/pyenv/versions/3.8.8/bin/oj test -c \"${fileDirname}/${fileBasenameNoExtension}\" -d ${fileDirname}/tests/",
             "presentation": {
                 "reveal": "always",
                 "focus": true,
